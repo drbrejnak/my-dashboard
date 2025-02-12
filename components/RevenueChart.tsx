@@ -13,36 +13,35 @@ const RevenueChart = () => {
 
     const transactionRev = mockTransactions.sort((a, b) => new Date(a.date) - new Date(b.date)).map((transaction) => transaction.cost).map(Number)
 
-    console.log(transactionDates)
-    console.log(transactionRev)
-
     return(
-        <LineChart
-        sx={{bgcolor: 'rgb(240, 240, 240)'}}
-            xAxis={[
+        <div style={{width: '65vw'}}>
+            <LineChart
+            skipAnimation
+            sx={{bgcolor: 'rgb(240, 240, 240)'}}
+                xAxis={[
+                    {
+                    label: "Date",
+                    data: transactionDates,
+                    tickInterval: (time) => time.getHours() === 0,
+                    scaleType: "time",
+                    valueFormatter: (date) =>
+                        date.toLocaleDateString('en-US', {
+                        month: '2-digit',
+                        day: '2-digit',
+                        year: '2-digit'
+                        }),
+                    },
+                ]}
+                series={[
                 {
-                label: "Date",
-                data: transactionDates,
-                tickInterval: (time) => time.getHours() === 0,
-                scaleType: "time",
-                valueFormatter: (date) =>
-                    date.toLocaleDateString('fr-FR', {
-                      month: '2-digit',
-                      day: '2-digit',
-                      year: '2-digit'
-                    }),
+                    label: "Daily Revenue",
+                    data: transactionRev,
+                    valueFormatter: (number) => `$${number}`
                 },
-            ]}
-            series={[
-            {
-                label: "Daily Revenue",
-                data: transactionRev,
-                valueFormatter: (number) => `$${number}`
-            },
-            ]}
-            width={500}
-            height={300}
-        />
+                ]}
+                height={400}
+            />
+        </div>
     )
 }
 
