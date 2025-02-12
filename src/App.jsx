@@ -1,4 +1,5 @@
 import Heading from '../components/Heading'
+import RevenueChart from '../components/RevenueChart'
 import SideMenu from '../components/SideMenu'
 import './App.css'
 
@@ -8,6 +9,7 @@ function App() {
     <>
       {/* <Heading /> */}
       <SideMenu />
+      <RevenueChart />
     </>
   )
 }
