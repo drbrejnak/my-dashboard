@@ -9,9 +9,9 @@ const RevenueChart = () => {
         const month = parseFloat(dateString.slice(5, 7));
         const day = parseFloat(dateString.slice(8, 10));
         return new Date(`${month}-${day}-${year}`);
-      })
+    });
 
-    const transactionRev = mockTransactions.sort((a, b) => new Date(a.date) - new Date(b.date)).map((transaction) => transaction.cost).map(Number)
+    const transactionRev = mockTransactions.sort((a, b) => new Date(a.date) - new Date(b.date)).map((transaction) => transaction.cost).map(Number);
 
     return(
         <div style={{width: '65vw'}}>

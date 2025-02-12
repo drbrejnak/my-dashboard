@@ -32,7 +32,7 @@ export default function SideMenu() {
 
   return (
     <>
-        <Button onClick={toggleDrawer(true)}>Account Info&nbsp;<ArrowCircleRightRoundedIcon /></Button>
+        <Button sx={{paddingLeft:'0'}} onClick={toggleDrawer(true)}>Account Info&nbsp;<ArrowCircleRightRoundedIcon /></Button>
         <Drawer open={open} onClose={toggleDrawer(false)}>
             {DrawerList}
         </Drawer>
